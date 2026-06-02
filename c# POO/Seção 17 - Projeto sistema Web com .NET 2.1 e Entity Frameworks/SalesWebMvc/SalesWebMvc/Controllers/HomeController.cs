@@ -15,11 +15,14 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewData["Message"] = "Salles web Web MVC App form C# course";
+        ViewData["Professor"] = "Nelio Alves";
         return View();
     }
 
     public IActionResult Privacy()
     {
+        
         return View();
     }
 

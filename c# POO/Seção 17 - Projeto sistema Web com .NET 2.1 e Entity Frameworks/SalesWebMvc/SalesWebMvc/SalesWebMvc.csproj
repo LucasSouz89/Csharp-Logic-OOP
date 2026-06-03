@@ -10,4 +10,8 @@
     <ProjectReference Include="..\SalesWebMvc.ServiceDefaults\SalesWebMvc.ServiceDefaults.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
+  </ItemGroup>
+
 </Project>

@@ -8,8 +8,11 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        var connectionString = builder.Configuration.GetConnectionString("SalesWebMvcContext") ?? throw new InvalidOperationException("Connection string 'SalesWebMvcContext' not found.");
+
+        // Fix: Add the correct using and reference Pomelo.EntityFrameworkCore.MySql for UseMySql and ServerVersion
         builder.Services.AddDbContext<SalesWebMvcContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebMvcContext") ?? throw new InvalidOperationException("Connection string 'SalesWebMvcContext' not found.")));
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
         builder.AddServiceDefaults();
 
         // Add services to the container.

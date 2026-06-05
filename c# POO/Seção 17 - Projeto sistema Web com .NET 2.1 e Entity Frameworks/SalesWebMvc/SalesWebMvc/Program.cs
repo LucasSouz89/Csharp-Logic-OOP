@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using SalesWebMvc.Data;
 using SalesWebMvc.Models;
 namespace SalesWebMvc;
 
@@ -9,6 +10,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
         var connectionString = builder.Configuration.GetConnectionString("SalesWebMvcContext") ?? throw new InvalidOperationException("Connection string 'SalesWebMvcContext' not found.");
+
+        builder.Services.AddScoped<SeedingService>();
 
         // Fix: Add the correct using and reference Pomelo.EntityFrameworkCore.MySql for UseMySql and ServerVersion
         builder.Services.AddDbContext<SalesWebMvcContext>(options =>
@@ -20,15 +23,24 @@ public class Program
 
         var app = builder.Build();
 
-        app.MapDefaultEndpoints();
-
-        // Configure the HTTP request pipeline.
-        if (!app.Environment.IsDevelopment())
+        if (app.Environment.IsDevelopment())
+        {
+            using (var scope = app.Services.CreateScope())
+            {
+                var seedingService = scope.ServiceProvider.GetRequiredService<SeedingService>();
+                seedingService.Seed();
+            }
+        }
+        else
         {
             app.UseExceptionHandler("/Home/Error");
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+        app.MapDefaultEndpoints();
+
+        
+        
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();

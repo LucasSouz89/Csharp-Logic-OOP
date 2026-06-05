@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvc.Data;
 using SalesWebMvc.Models;
 namespace SalesWebMvc;
+using SalesWebMvc.Services;
 
 public class Program
 {
@@ -12,6 +13,7 @@ public class Program
         var connectionString = builder.Configuration.GetConnectionString("SalesWebMvcContext") ?? throw new InvalidOperationException("Connection string 'SalesWebMvcContext' not found.");
 
         builder.Services.AddScoped<SeedingService>();
+        builder.Services.AddScoped<SellerService>();
 
         // Fix: Add the correct using and reference Pomelo.EntityFrameworkCore.MySql for UseMySql and ServerVersion
         builder.Services.AddDbContext<SalesWebMvcContext>(options =>

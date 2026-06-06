@@ -14,6 +14,7 @@ public class Program
 
         builder.Services.AddScoped<SeedingService>();
         builder.Services.AddScoped<SellerService>();
+        builder.Services.AddScoped<DepartmentService>();
 
         // Fix: Add the correct using and reference Pomelo.EntityFrameworkCore.MySql for UseMySql and ServerVersion
         builder.Services.AddDbContext<SalesWebMvcContext>(options =>

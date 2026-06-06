@@ -20,3 +20,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+.custom-table-bg {
+    background-color: #2b1b54; 
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+}
+
+    
+    .custom-table-bg td, .custom-table-bg th {
+        vertical-align: middle;
+    }

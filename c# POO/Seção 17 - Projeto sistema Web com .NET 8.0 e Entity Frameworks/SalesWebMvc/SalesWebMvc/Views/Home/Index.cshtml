@@ -1,17 +1,26 @@
 ﻿@{
-    
     ViewData["Title"] = "Home Page";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Professor @ViewData["Professor"]</p>
-<address>
-    <strong>
-        More information: </strong> <a href="http://educandoweb.com.br">Educandoweb.com.br</a>
-    </strong>
-</address>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mt-5 mb-4">
+    <h1 class="display-4 text-info fw-bold">Welcome to Sales Web MVC</h1>
+    <p class="lead text-white">Sistema de gerenciamento de vendas construído em C# e .NET Core.</p>
+</div>
+
+<hr class="border-info mb-5" />
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="custom-table-bg p-5 rounded shadow-sm text-center">
+
+            <h3 class="text-warning mb-3">@ViewData["Message"]</h3>
+            <p class="text-white fs-5 mb-4">
+                Desenvolvido sob a mentoria do Professor <strong class="text-info">@ViewData["Professor"]</strong>.
+            </p>
+
+            <div class="mt-4">
+                
+
+        </div>
+    </div>
 </div>

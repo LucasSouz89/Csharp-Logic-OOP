@@ -1,5 +1,5 @@
 ﻿using SalesWebMvc.Models;
-using SalesWebMvc.Models.Enuns;
+using SalesWebMvc.Models.Enums;
 
 namespace SalesWebMvc.Data
 {

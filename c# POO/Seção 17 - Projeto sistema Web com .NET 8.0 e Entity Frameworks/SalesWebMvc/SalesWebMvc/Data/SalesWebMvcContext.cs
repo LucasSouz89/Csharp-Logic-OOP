@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SalesWebMvc.Models.Enuns;
+using SalesWebMvc.Models.Enums;
 
 namespace SalesWebMvc.Models
 {
